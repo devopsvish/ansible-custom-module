@@ -1,0 +1,11 @@
+- hosts: vish-localhost
+  become: true
+  gather_facts: true
+  tasks:
+    - name: Show the current working directory
+      command: "pwd"
+      register: output
+    
+    - name: Show the output
+      debug:
+        var: output

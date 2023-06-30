@@ -1,0 +1,16 @@
+- name: Execute vish module for testing
+  hosts: vish-localhost
+  become: true
+  gather_facts: true
+  tasks:
+    - name: Get the Employee info
+      vish_module:
+        name: "Vish"
+        designation: "DevOps Engineer"
+        skills: "Linux, Docker, etc"
+        location: null
+      register: output
+
+    - name: Show the employee info output
+      debug:
+        var: output
